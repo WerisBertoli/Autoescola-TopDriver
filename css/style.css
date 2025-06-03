@@ -16,29 +16,6 @@
     margin-bottom: 6rem;
 }
 
-.back-to-top {
-    position: fixed; 
-    bottom: 30px;    
-    right: 25px;     
-    background-color: #25d366; 
-    color: white;   
-    font-size: 30px; 
-    border-radius: 50%; 
-    width: 60px; 
-    height: 60px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;  
-    transition: transform 0.3s; 
-}
-
-.back-to-top:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
-}
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -52,7 +29,6 @@
     visibility: visible;
     opacity: 1;
 }
-
 
 /*** Button ***/
 .btn {
@@ -90,7 +66,6 @@
     font-weight: normal;
 }
 
-
 /*** Navbar ***/
 .navbar.sticky-top {
     top: -100px;
@@ -116,14 +91,6 @@
     color: var(--primary);
 }
 
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link  {
@@ -136,27 +103,19 @@
     }
 }
 
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
 
 /*** Header ***/
+#header-carousel {
+    height: 800px; /* Altura fixa para o carrossel */
+    overflow: hidden;
+}
+
+.carousel-image {
+    height: 1200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que as imagens preencham o espaço sem distorção */
+    width: 100%;
+}
+
 .carousel-caption {
     top: 0;
     left: 0;
@@ -184,16 +143,12 @@
 }
 
 @media (max-width: 768px) {
-    #header-carousel .carousel-item {
-        position: relative;
-        min-height: 450px;
+    #header-carousel {
+        height: 400px; /* Altura ajustada para telas menores */
     }
     
-    #header-carousel .carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .carousel-image {
+        height: 400px; /* Altura ajustada para telas menores */
     }
 }
 
@@ -206,7 +161,6 @@
     color: #999999;
 }
 
-
 /*** Facts ***/
 @media (min-width: 991.98px) {
     .facts {
@@ -215,7 +169,6 @@
         z-index: 1;
     }
 }
-
 
 /*** Courses ***/
 .courses {
@@ -245,16 +198,22 @@
     opacity: 1;
 }
 
-
 /*** Team ***/
 .team-items {
     margin: -.75rem;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .team-item {
     padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Altura fixa para uniformidade */
+    width: 100%; /* Garante que o card ocupe a largura total da coluna */
+    position: relative;
 }
 
 .team-item::after {
@@ -294,7 +253,11 @@
     opacity: 1;
 }
 
-
+.team-image {
+    width: 100%;
+    height: 250px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+}
 /*** Testimonial ***/
 .testimonial-carousel .owl-dots {
     height: 40px;
@@ -325,7 +288,6 @@
     width: 150px;
     height: 150px;
 }
-
 
 /*** Footer ***/
 .footer .btn.btn-link {
@@ -364,4 +326,51 @@
 
 .copyright a:hover {
     color: var(--light);
+}
+
+/*** Ajustes para a seção de processo ***/
+#process .bg-white {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+#process .bg-white:hover {
+    transform: translateY(-5px);
+}
+
+/*** FAB ***/
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fab-whatsapp {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: white;
+}
+.fab-instagram {
+    background-color: #f56040; /* Cor oficial do WhatsApp */
+    color: white;
 }
