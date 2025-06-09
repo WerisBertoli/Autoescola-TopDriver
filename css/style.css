@@ -212,7 +212,7 @@
     display: flex;
     flex-direction: column;
     height: 400px; /* Altura fixa para uniformidade */
-    width: 100%; /* Garante que o card ocupe a largura total da coluna */
+    width: 90%; /* Garante que o card ocupe a largura total da coluna */
     position: relative;
 }
 
@@ -229,7 +229,7 @@
 }
 
 .team-item:hover::after {
-    height: 100%;
+    height: 80%;
     background: var(--primary);
 }
 
@@ -255,39 +255,31 @@
 
 .team-image {
     width: 100%;
-    height: 250px; /* Altura fixa para as imagens */
+    height: 275px; /* Altura fixa para as imagens */
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
 }
 /*** Testimonial ***/
-.testimonial-carousel .owl-dots {
-    height: 40px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
+/* Centraliza o item do carrossel */
+.testimonial-item {
+    display: flex !important;
     justify-content: center;
+    align-items: center;
+    height: 400px; /* altura desejada do carrossel */
+    padding: 20px;
 }
 
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border: 2px solid var(--primary);
-    transition: .5s;
+/* Estiliza a imagem */
+.testimonial-item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial-carousel .owl-dot.active {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-}
 
-.testimonial-carousel .owl-item img {
-    width: 150px;
-    height: 150px;
-}
 
 /*** Footer ***/
 .footer .btn.btn-link {
@@ -373,4 +365,78 @@
 .fab-instagram {
     background-color: #f56040; /* Cor oficial do WhatsApp */
     color: white;
+}
+
+.map-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio para mobile */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin: 0 auto;
+}
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+@media (min-width: 992px) {
+    .map-responsive {
+        padding-bottom: 0;
+        height: 450px;
+        min-height: 450px;
+        max-height: 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .map-responsive iframe {
+        height: 450px;
+        min-height: 450px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.footer-title {
+    color: #EE2B32;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-contact-list li {
+    color: #fff;
+    font-size: 1.08rem;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.footer-contact-list a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-contact-list a:hover {
+    color: #EE2B32;
+    text-decoration: underline;
+}
+@media (max-width: 991.98px) {
+    .footer-title {
+        font-size: 1.3rem;
+    }
+    .footer-contact-list li {
+        font-size: 1rem;
+    }
 }
